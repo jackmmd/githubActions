@@ -11,6 +11,12 @@ on:
 jobs:
 
   build:
+    #Definición de variables de entorno
+    env:
+      platform: aws
+      region: us-east-1
+      account: 1224343544
+
     # EL entorno donde se ejecutará el trabajo
     runs-on: ubuntu-latest
 
@@ -18,3 +24,8 @@ jobs:
     steps:
       - name: "Mostrar mensage"
         run: echo "Hola mundo"
+      - name: "Mostrando variables de entorno"
+        run: |
+          echo "Plataforma ${{ env.platform }}"
+          echo "Region ${{ env.region }}"
+          echo "Cuenta ${{ env.account }}"
