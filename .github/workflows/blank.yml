@@ -25,8 +25,13 @@ jobs:
       - name: "Mostrar mensage"
         run: echo "Hola mundo"
       - name: "Mostrando variables de entorno"
-        if: ${{ env.platform == 'azure' }}
+        #Condicionales
+        if: ${{ env.platform == 'azure' }} 
         run: |
           echo "Plataforma ${{ env.platform }}"
           echo "Region ${{ env.region }}"
           echo "Cuenta ${{ env.account }}"
+      - name: "Mostrando variables por defecto"
+        run: |
+          echo "Evento: ${{ github.event }}"
+          echo "Envent2 ${{ toJson(github.event) }}"
