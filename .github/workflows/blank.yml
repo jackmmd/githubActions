@@ -42,8 +42,12 @@ jobs:
           echo "GITHUB_ACTOR: $GITHUB_ACTOR"
           echo "GITHUB_REPOSITORY: ${{ github.repository }}"
 
-      - name: "Mostrando variables de entorno"
+      - name: "Mostrando variables de entorno secretas"
+        if: ${{ env.username == 'duberly' }}
+        #No muestra estas variables pero si las lee
         run: |
-          echo "My username: ${{ env.username  }}"
-          echo "My password: ${{ env.password }}"
+            echo "My username: ${{ env.username  }}"
+            echo "My password: ${{ env.password }}"
+      - name: "Montrando variables de entorno públicas"
+        run: echo "${{ vars.PROJECT_VERSION }}"
 
