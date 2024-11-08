@@ -17,6 +17,9 @@ jobs:
       region: us-east-1
       account: 1224343544
 
+      #Variables secretas del repo settings > Secrets an variable > Actions > New repository secret
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
     # EL entorno donde se ejecutará el trabajo
     runs-on: ubuntu-latest
 
@@ -38,4 +41,9 @@ jobs:
           echo "GITHUB_ACTOR: ${{ github.actor }}"
           echo "GITHUB_ACTOR: $GITHUB_ACTOR"
           echo "GITHUB_REPOSITORY: ${{ github.repository }}"
+
+      - name: "Mostrando variables de entorno"
+        run: |
+          echo "My username: ${{ env.username  }}"
+          echo "My password: ${{ env.password }}"
 
